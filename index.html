@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Saca una carta de tarot gratis online con una experiencia simple y limpia. Perfecto para introspección y descubrir tu carta del día sin complicaciones." />
+  <meta name="keywords" content="sacar tarot gratis online, tirar cartas de tarot gratis, cartas de tarot en línea, tirar carta tarot, tirar cartas gratis, sacar carta del día, tirada de cartas online, tarot sin lectura, cartas tarot gratis, tirar carta online" />
+  <meta name="author" content="Phoenix Rodrigo" />
+  <title>Sacar Tarot Gratis Online - Tirada de Cartas Simple</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      min-height: 100vh;
+    }
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .branding img {
+      height: 24px;
+    }
+    .branding a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    button {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      min-height: 140px;
+    }
+    .card-container img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="branding">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_social_white_squircle.svg" alt="YouTube logo" />
+    <a href="https://www.youtube.com/@PhoenixRodrigoTarot" target="_blank" rel="noopener noreferrer">Phoenix Rodrigo Tarot</a>
+  </div>
+
+  <button onclick="drawCard()">Sacar carta / Draw card</button>
+  <button onclick="resetCards()">Reiniciar / Reset</button>
+
+  <div class="card-container" id="cardContainer">
+    <img id="cardBack" src="https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_back.jpg" alt="Card back" />
+  </div>
+
+  <script>
+    const cards = [
+      "00-the-fool.jpg", "01-the-magician.jpg", "02-the-high-priestess.jpg", "03-the-empress.jpg",
+      "04-the-emperor.jpg", "05-the-hierophant.jpg", "06-the-lovers.jpg", "07-the-chariot.jpg",
+      "08-strength.jpg", "09-the-hermit.jpg", "10-wheel-of-fortune.jpg", "11-justice.jpg",
+      "12-the-hanged-man.jpg", "13-death.jpg", "14-temperance.jpg", "15-the-devil.jpg",
+      "16-the-tower.jpg", "17-the-star.jpg", "18-the-moon.jpg", "19-the-sun.jpg",
+      "20-judgement.jpg", "21-the-world.jpg"
+    ];
+
+    let drawnCards = [];
+
+    function drawCard() {
+      if (drawnCards.length >= cards.length) return;
+
+      const cardBack = document.getElementById("cardBack");
+      if (cardBack) cardBack.remove();
+
+      let card;
+      do {
+        card = cards[Math.floor(Math.random() * cards.length)];
+      } while (drawnCards.includes(card));
+
+      drawnCards.push(card);
+      displayCard(card);
+    }
+
+    function displayCard(card) {
+      const img = document.createElement("img");
+      img.src = `https://upload.wikimedia.org/wikipedia/en/9/90/RWS_Tarot_${card}`;
+      img.alt = card.replace(/\.jpg$/, '').replace(/\d+-/, '').replace(/-/g, ' ');
+      document.getElementById("cardContainer").appendChild(img);
+    }
+
+    function resetCards() {
+      drawnCards = [];
+      const container = document.getElementById("cardContainer");
+      container.innerHTML = "";
+      const cardBack = document.createElement("img");
+      cardBack.src = "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_back.jpg";
+      cardBack.alt = "Card back";
+      cardBack.id = "cardBack";
+      container.appendChild(cardBack);
+    }
+  </script>
+</body>
+</html>
