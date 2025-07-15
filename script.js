@@ -20,6 +20,10 @@ const resetBtn = document.getElementById("reset-btn");
 const container = document.getElementById("card-container");
 
 drawBtn.addEventListener("click", () => {
+  // 🔥 Hide the deck back image if it's there
+  const deckBack = document.getElementById("deck-back");
+  if (deckBack) deckBack.style.display = "none";
+
   if (drawnCards.size >= cardFilenames.length) {
     alert("Todas las cartas han sido mostradas.");
     return;
@@ -41,4 +45,8 @@ drawBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", () => {
   drawnCards.clear();
   container.innerHTML = "";
+
+  // 🔄 Show the deck back again on reset
+  const deckBack = document.getElementById("deck-back");
+  if (deckBack) deckBack.style.display = "block";
 });
