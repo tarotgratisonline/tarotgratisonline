@@ -31,6 +31,25 @@ header a:hover {
 .controls {
   margin: 2rem 0;
 }
+.youtube-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.youtube-link:hover {
+  text-decoration: underline;
+}
+
+.youtube-icon {
+  width: 20px;
+  height: 20px;
+}
+
 
 button {
   cursor: pointer;
