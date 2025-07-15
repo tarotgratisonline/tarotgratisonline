@@ -69,6 +69,7 @@ button:hover {
 }
 
 #card-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -101,4 +102,10 @@ button:hover {
 #deck-back:hover {
   transform: scale(1.05);
 }
-
+#deck-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
