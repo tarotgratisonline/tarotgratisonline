@@ -20,9 +20,8 @@ const resetBtn = document.getElementById("reset-btn");
 const container = document.getElementById("card-container");
 
 drawBtn.addEventListener("click", () => {
-  // 🔥 Hide the deck back image if it's there
   const deckBack = document.getElementById("deck-back");
-  if (deckBack) deckBack.style.display = "none";
+  if (deckBack) deckBack.remove(); // 💥 remove it completely
 
   if (drawnCards.size >= cardFilenames.length) {
     alert("Todas las cartas han sido mostradas.");
@@ -46,7 +45,18 @@ resetBtn.addEventListener("click", () => {
   drawnCards.clear();
   container.innerHTML = "";
 
-  // 🔄 Show the deck back again on reset
-  const deckBack = document.getElementById("deck-back");
-  if (deckBack) deckBack.style.display = "block";
+  // ♻️ Re-add the deck back image
+  const backImg = document.createElement("img");
+  backImg.id = "deck-back";
+  backImg.src = "cards/phoenix-rodrigo-tarot-card.jpg";
+  backImg.alt = "Mazo de cartas";
+  backImg.style.height = "190px";
+  backImg.style.borderRadius = "10px";
+  backImg.style.boxShadow = "0 0 10px rgba(255,183,77,0.8)";
+  backImg.style.cursor = "pointer";
+  backImg.style.transition = "transform 0.3s ease";
+  backImg.style.display = "block";
+  backImg.style.margin = "0 auto 1rem auto";
+
+  container.appendChild(backImg);
 });
