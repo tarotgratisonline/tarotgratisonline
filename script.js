@@ -1,33 +1,16 @@
 const cardFilenames = [
-  // Major Arcana
-  "RWS_Tarot_00_Fool.jpg",
-  "RWS_Tarot_01_Magician.jpg",
-  "RWS_Tarot_02_High_Priestess.jpg",
-  "RWS_Tarot_03_Empress.jpg",
-  "RWS_Tarot_04_Emperor.jpg",
-  "RWS_Tarot_05_Hierophant.jpg",
-  "RWS_Tarot_06_Lovers.jpg",
-  "RWS_Tarot_07_Chariot.jpg",
-  "RWS_Tarot_08_Strength.jpg",
-  "RWS_Tarot_09_Hermit.jpg",
-  "RWS_Tarot_10_Wheel_of_Fortune.jpg",
-  "RWS_Tarot_11_Justice.jpg",
-  "RWS_Tarot_12_Hanged_Man.jpg",
-  "RWS_Tarot_13_Death.jpg",
-  "RWS_Tarot_14_Temperance.jpg",
-  "RWS_Tarot_15_Devil.jpg",
-  "RWS_Tarot_16_Tower.jpg",
-  "RWS_Tarot_17_Star.jpg",
-  "RWS_Tarot_18_Moon.jpg",
-  "RWS_Tarot_19_Sun.jpg",
-  "RWS_Tarot_20_Judgement.jpg",
+  "RWS_Tarot_00_Fool.jpg", "RWS_Tarot_01_Magician.jpg", "RWS_Tarot_02_High_Priestess.jpg",
+  "RWS_Tarot_03_Empress.jpg", "RWS_Tarot_04_Emperor.jpg", "RWS_Tarot_05_Hierophant.jpg",
+  "RWS_Tarot_06_Lovers.jpg", "RWS_Tarot_07_Chariot.jpg", "RWS_Tarot_08_Strength.jpg",
+  "RWS_Tarot_09_Hermit.jpg", "RWS_Tarot_10_Wheel_of_Fortune.jpg", "RWS_Tarot_11_Justice.jpg",
+  "RWS_Tarot_12_Hanged_Man.jpg", "RWS_Tarot_13_Death.jpg", "RWS_Tarot_14_Temperance.jpg",
+  "RWS_Tarot_15_Devil.jpg", "RWS_Tarot_16_Tower.jpg", "RWS_Tarot_17_Star.jpg",
+  "RWS_Tarot_18_Moon.jpg", "RWS_Tarot_19_Sun.jpg", "RWS_Tarot_20_Judgement.jpg",
   "RWS_Tarot_21_World.jpg",
-
-  // Suits: Cups, Pents, Swords, Wands
-  ...Array.from({length: 14}, (_, i) => `Cups${String(i+1).padStart(2, '0')}.jpg`),
-  ...Array.from({length: 14}, (_, i) => `Pents${String(i+1).padStart(2, '0')}.jpg`),
-  ...Array.from({length: 14}, (_, i) => `Swords${String(i+1).padStart(2, '0')}.jpg`),
-  ...Array.from({length: 14}, (_, i) => `Wands${String(i+1).padStart(2, '0')}.jpg`)
+  ...Array.from({length: 14}, (_, i) => `Cups${String(i + 1).padStart(2, "0")}.jpg`),
+  ...Array.from({length: 14}, (_, i) => `Pents${String(i + 1).padStart(2, "0")}.jpg`),
+  ...Array.from({length: 14}, (_, i) => `Swords${String(i + 1).padStart(2, "0")}.jpg`),
+  ...Array.from({length: 14}, (_, i) => `Wands${String(i + 1).padStart(2, "0")}.jpg`)
 ];
 
 const drawnCards = new Set();
@@ -38,7 +21,7 @@ const container = document.getElementById("card-container");
 
 drawBtn.addEventListener("click", () => {
   if (drawnCards.size >= cardFilenames.length) {
-    alert("All cards have been drawn!");
+    alert("Todas las cartas han sido mostradas.");
     return;
   }
 
@@ -51,7 +34,7 @@ drawBtn.addEventListener("click", () => {
 
   const img = document.createElement("img");
   img.src = `cards/${card}`;
-  img.alt = card;
+  img.alt = "";
   container.appendChild(img);
 });
 
