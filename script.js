@@ -43,7 +43,13 @@ drawBtn.addEventListener("click", () => {
 
 resetBtn.addEventListener("click", () => {
   drawnCards.clear();
-  container.innerHTML = "";
+  container.innerHTML = `
+    <div id="deck-wrapper">
+      <img id="deck-back" src="cards/phoenix-rodrigo-tarot-card.jpg" alt="Mazo de cartas" />
+    </div>
+  `;
+});
+
 
   // ♻️ Re-add the deck back image
   const backImg = document.createElement("img");
